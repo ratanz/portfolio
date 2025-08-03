@@ -40,7 +40,7 @@ const workExperienceData = [
     {
         title: "JPMorgan Chase & Co. Virtual Internship",
         date: "May 2023 – Jul 2023",
-        role: "JPMorgan Chase & Co. Software Engineering Lite Program on Forage",
+        role: "JPMorgan Chase & Co. Software Engineering Program on Forage",
         badge: "On Forage",
         description: [
             "Completed a simulation focused on the process of completing an engineering ticket for a system in the credit-card rewards department.",
