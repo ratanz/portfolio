@@ -7,6 +7,12 @@ export interface Project {
 
 export const projectsContent: Project[] = [
     {
+        title: "Pheonix fits",
+        description:"Not your average e-commerce platform, Pheonix fits is a modern take on online shopping with a focus on user experience and performance",
+        imageUrl: "/images/phoenix.png",
+        projectUrl: "https://phoenix-fits.vercel.app/"
+    },
+    {
         title: "Studio Size",
         description: "A modern creative studio built with Next.js, featuring dynamic product management, responsive design, and seamless user experience",
         imageUrl: "/images/studio.png",
@@ -85,15 +91,22 @@ export const projectsContent: Project[] = [
         projectUrl: "https://flux-flow.vercel.app/"
     },
     {
+        title : "Momentum",
+        description:"A digital photo storage of beautiful frames",
+        imageUrl: "/images/momentum.png",
+        projectUrl: "https://momentum-studio.netlify.app/"
+    },
+    {
         title: "Zentry - Awwwards Recreation",
         description:"A pixel-perfect recreation of Awwwards winning gaming agency website, showcasing attention to detail at its finest",
         imageUrl: "/images/zentry.png",
         projectUrl: "https://zentryy.vercel.app/"
     },
     {
-        title: "Pheonix fits",
-        description:"Not your average e-commerce platform, Pheonix fits is a modern take on online shopping with a focus on user experience and performance",
-        imageUrl: "/images/phoenix.png",
-        projectUrl: "https://phoenix-fits.vercel.app/"
+        title: "Artifact-Scroll",
+        description:"Using my scrolling addiction to some good use 🤷🏻",
+        imageUrl: "/images/artifact.png",
+        projectUrl: "https://artifactscroll.netlify.app/"
     }
+ 
 ];

@@ -18,11 +18,11 @@ export function Navbar() {
   useEffect(() => {
     const navbar = navbarRef.current;
     if (!navbar) return;
-    
+
     // Initial animation
     gsap.fromTo(navbar,
       { y: -100, opacity: 0, },
-      { 
+      {
         y: 0,
         opacity: 1,
         duration: 1.8,
@@ -31,18 +31,18 @@ export function Navbar() {
         delay: 0.4
       }
     );
-    
+
     let lastScrollY = window.scrollY;
     let ticking = false;
-    
+
     const updateNavbar = () => {
       const currentScrollY = window.scrollY;
-      
+
       if (Math.abs(currentScrollY - lastScrollY) < 10) {
         ticking = false;
         return;
       }
-      
+
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         // Scrolling down - hide navbar
         gsap.to(navbar, {
@@ -61,20 +61,20 @@ export function Navbar() {
         });
 
       }
-      
+
       lastScrollY = currentScrollY;
       ticking = false;
     };
-    
+
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(updateNavbar);
         ticking = true;
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       gsap.killTweensOf(navbar);
@@ -102,7 +102,7 @@ export function Navbar() {
         rotation: 180,
         ease: "power2.inOut"
       });
-    } 
+    }
     // close menu
     else {
       gsap.to(menuContentRef.current, {
@@ -138,7 +138,7 @@ export function Navbar() {
 
   return (
     <>
-      <div ref={navbarRef} className={`content h-12 px-4 md:px-5 py-6 flex justify-between items-center fixed font-pretendard  transition-all duration-300 backdrop-blur-md z-50 w-[80%] ml-[10%] mt-4 rounded-full bg-zinc-950/20 cursor-pointer border border-zinc-800/40 
+      <div ref={navbarRef} className={`content h-12 px-4 md:px-5 py-6 flex justify-between items-center fixed font-pretendard  transition-all duration-300 backdrop-blur-md z-50 w-[80%] ml-[10%] mt-4 rounded-full bg-zinc-950/20 text-zinc-200 to-zinc-950 cursor-pointer border border-zinc-800/40 
       `}
         style={{ transform: 'translateY(-100%)' }}
       >
@@ -147,20 +147,20 @@ export function Navbar() {
             <ShinyText text="R A T A N" />
           </TransitionLink>
         </div>
-    
+
         <div className="links hidden lg:flex lg:gap-10 gap-2 uppercase ">
           {menuItems.map((item) => (
             <Magnetic key={item.label}>
               <div className='relative group'>
                 <TransitionLink href={item.href}>
                   <div className='overflow-hidden'>
-                    <ShinyText 
+                    <ShinyText
                       text={item.label}
                       className="font-medium lg:text-sm text-xs tracking-tight"
                       speed={3}
                       disabled={false}
                     />
-                    <span className='block h-[1px] w-0 bg-gradient-to-tr from-zinc-200 to-zinc-300 absolute bottom-0 left-0 group-hover:w-full transition-all duration-300'></span>
+                    <span className='block h-[0.5px] w-0 bg-gradient-to-tr from-zinc-200 to-zinc-300 absolute bottom-0 left-0 group-hover:w-full transition-all duration-300'></span>
                   </div>
                 </TransitionLink>
               </div>
@@ -182,13 +182,14 @@ export function Navbar() {
 
       </div>
 
+    {/* menu on mobile */}
       <div
         ref={menuRef}
         className={`fixed inset-0 bg-black bg-opacity-100 z-50 flex flex-col items-center justify-center ${isMenuOpen ? '' : 'pointer-events-none'}`}
         style={{ opacity: 0, transform: 'translateY(-100%)' }}
       >
-        <button 
-          onClick={toggleMenu} 
+        <button
+          onClick={toggleMenu}
           className="absolute top-8  text-zinc-400 hover:text-white transition-colors duration-300 focus:outline-none z-60"
           aria-label="Close menu"
         >
@@ -205,7 +206,7 @@ export function Navbar() {
           {menuItems.map((item) => (
             <div key={item.label} className="my-6">
               <TransitionLink href={item.href} onClick={() => setIsMenuOpen(false)}>
-                <ShinyText 
+                <ShinyText
                   text={item.label}
                   className="text-4xl font-medium hover:text-white transition-colors duration-300"
                   speed={3}
